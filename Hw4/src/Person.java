@@ -26,11 +26,11 @@ class Student extends Person {
     Student(String classStatus) {
         this.classStatus = classStatus;
     }
-
-    //public "Student: " + name;
 }
 
 class Employee extends Person {
+    String office;
+    
 
 }
 
