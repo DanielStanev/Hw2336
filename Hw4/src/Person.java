@@ -30,7 +30,7 @@ class Student extends Person {
 
 class Employee extends Person {
     String office;
-    
+    int date;
 
 }
 
