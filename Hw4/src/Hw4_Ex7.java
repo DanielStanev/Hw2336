@@ -9,7 +9,7 @@ public class Hw4_Ex7 {
         tax2001.setRates(rates);
         tax2001.setBrackets(brackets);
 
-        System.out.print("Income:     Single:     Joint:  Separate:    Head:\n");
+        System.out.print("Income:     Single:     Joint:  Separate:      Head:\n");
         for (double taxableIncome = 50000; taxableIncome <= 60000; taxableIncome += 1000) {
             tax2001.setTaxableIncome(taxableIncome);
             System.out.printf("%8.0f", taxableIncome);

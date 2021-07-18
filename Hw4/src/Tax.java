@@ -20,7 +20,7 @@ public class Tax {
     // accessors
     public int getFilingStatus()     { return filingStatus;  }
     public int[][] getBrackets()     { return brackets;      }
-    public double[] getrates()       { return rates;         }
+    public double[] getRates()       { return rates;         }
     public double getTaxableIncome() { return taxableIncome; }
 
     // mutators
@@ -41,17 +41,11 @@ public class Tax {
     }
 
     public double getTax() {
-        double tax = 0, incomeTaxed = 0;
-        double income = taxableIncome;
-        if (rates.length >= 2) {
-            for (int i = rates.length - 2; i >= 0; i--) {
-                if (income > brackets[filingStatus][i]) {
-                    tax += (incomeTaxed = income - brackets[filingStatus][i]) * rates[i + 1];
-                    income -= incomeTaxed;
-                }
-            }
-        }
-        return tax += brackets[filingStatus][0] * rates[0];
+        int i = 0;
+        for (; i < rates.length; i++)
+            if (taxableIncome <= brackets[filingStatus][i])
+                break;
+        return (rates[i] * .01) * (taxableIncome);
     }
 
 }
