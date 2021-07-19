@@ -1,7 +1,8 @@
 public class Hw4_Ex8 {
     public static void main(String[] x) {
-        Student p1 = new Student("Didko", "aoe", "<EU", "<AOE", "aoeu");
+        MyDate today = new MyDate();
 
-        System.out.print(p1.toString());
+        System.out.println(today.getMonth());
+        System.out.println(today.getDay());
     }
 }
