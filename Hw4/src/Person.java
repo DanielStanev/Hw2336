@@ -2,6 +2,9 @@ public class Person {
     String name, address, phone, email;
 
     Person() {}
+    Person(String name) {
+        this.name = name;
+    }
     Person(String name, String address, String phone, String email) {
         this.name = name;
         this.address = address;
@@ -30,8 +33,16 @@ class Student extends Person {
 
 class Employee extends Person {
     String office;
-    int date;
+    MyDate hired = new MyDate();
 
+    Employee() { }
+    Employee(String name) {
+        this.name = name;
+    }
+
+    void setDateHired() {
+
+    }
 }
 
 class Staff extends Employee {
