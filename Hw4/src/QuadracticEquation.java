@@ -1,4 +1,17 @@
-public class QuadracticEquation {
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           8 Jul 2021
+ Assignment:     Homework #04 Exercise #04
+ Version:        Java SE 11 (LTS)
+
+ Description: Quadratic Class for
+ exercise 4.
+
+ *************************************/
+
+ public class QuadracticEquation {
     // data fields
     private double a, b, c;
 

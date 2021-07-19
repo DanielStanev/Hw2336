@@ -1,4 +1,18 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           18 Jul 2021
+ Assignment:     Homework #04 Exercise #08
+ Version:        Java SE 11 (LTS)
+
+ Description: MyDate Class for
+ exercise 8.
+
+ *************************************/
+
 public class MyDate {
+    // data fields
     private int year;
     private int month;
     private int day;

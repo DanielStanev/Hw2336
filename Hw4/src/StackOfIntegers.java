@@ -1,3 +1,16 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           8 Jul 2021
+ Assignment:     Homework #04 Exercise #05
+ Version:        Java SE 11 (LTS)
+
+ Description: StackOfIntegers Class for
+ exercise 5.
+
+ *************************************/
+
 public class StackOfIntegers {
     private int[] elements;
     private int size;

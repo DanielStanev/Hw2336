@@ -1,4 +1,18 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           8 Jul 2021
+ Assignment:     Homework #04 Exercise #07
+ Version:        Java SE 11 (LTS)
+
+ Description: Tax Class for
+ exercise 7.
+
+ *************************************/
+
 public class Tax {
+    // Data Fields
     public static final int SINGLE_FILER = 0;
     public static final int MARRIED_JOINTLY_OR_QUALIFYING_WIDOW = 1;
     public static final int MARRIED_SEPARATELY = 2;
@@ -8,7 +22,7 @@ public class Tax {
     private double[] rates;
     private double taxableIncome;
 
-    // constructors
+    // Constructors
     Tax() { }
     Tax(int filingStatus, int[][] brackets, double[] rates, double taxableIncome) {
         setFilingStatus(filingStatus);
@@ -17,13 +31,13 @@ public class Tax {
         setTaxableIncome(taxableIncome);
     }
 
-    // accessors
+    // Accessors
     public int getFilingStatus()     { return filingStatus;  }
     public int[][] getBrackets()     { return brackets;      }
     public double[] getRates()       { return rates;         }
     public double getTaxableIncome() { return taxableIncome; }
 
-    // mutators
+    // Mutators
     public void setFilingStatus(int filingStatus) {
         this.filingStatus = filingStatus;
     }
@@ -40,6 +54,7 @@ public class Tax {
         this.taxableIncome = taxableIncome;
     }
 
+    // returns tax
     public double getTax() {
         int i = 0;
         for (; i < rates.length; i++)

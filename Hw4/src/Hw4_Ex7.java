@@ -1,3 +1,15 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           18 Jul 2021
+ Assignment:     Homework #04 Exercise #07
+ Version:        Java SE 11 (LTS)
+
+ Description: Test program for the Tax
+ class.
+
+ *************************************/
 public class Hw4_Ex7 {
     public static void main(String[] x) {
         Tax tax2001 = new Tax();
@@ -5,10 +17,11 @@ public class Hw4_Ex7 {
         int[][] brackets = {{27050, 65550, 136750, 297350}, {45200, 109250, 166500, 297350},
                 {22600, 54625, 83250, 148675}, {36250, 93650, 151650, 297350}};
 
-
+        // sets rates and taxes
         tax2001.setRates(rates);
         tax2001.setBrackets(brackets);
 
+        // output
         System.out.print("Income:     Single:     Joint:  Separate:      Head:\n");
         for (double taxableIncome = 50000; taxableIncome <= 60000; taxableIncome += 1000) {
             tax2001.setTaxableIncome(taxableIncome);

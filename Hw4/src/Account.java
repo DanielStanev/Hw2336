@@ -1,3 +1,16 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           8 Jul 2021
+ Assignment:     Homework #04 Exercise #03
+ Version:        Java SE 11 (LTS)
+
+ Description: Account Class for
+ exercises 3 and 6.
+
+ *************************************/
+
 public class Account {
     // data fields
     private int id = 0;

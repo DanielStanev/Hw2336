@@ -1,3 +1,14 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           10 Jul 2021
+ Assignment:     Homework #04 Exercise #06
+ Version:        Java SE 11 (LTS)
+
+ Description: ATM machine.
+
+ *************************************/
 public class Hw4_Ex6 {
     public static void main(String[] x) {
         Boolean exit = false;
@@ -6,10 +17,11 @@ public class Hw4_Ex6 {
         Account[] array = new Account[10];
         java.util.Scanner input = new java.util.Scanner(System.in);
 
-
+        // generates new account
         for (int  i = 0; i < 10; i++)
             array[i] = new Account(i, 100, 0);
 
+        // no exit condition
         while (true) {
             System.out.print("Enter ID: ");
             id = input.nextInt();
@@ -28,6 +40,7 @@ public class Hw4_Ex6 {
 
                 choice = input.nextInt();
 
+                // swtiches based on menu choice
                 switch (choice) {
                     case 1:
                         System.out.printf("Balance: $%.2f\n", array[id].getBalance());
@@ -52,6 +65,7 @@ public class Hw4_Ex6 {
                         System.out.print("Invalid Choice\n");
                         break;
                 }
+                // exits program
                 if (exit)
                     break;
             }

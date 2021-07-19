@@ -1,3 +1,14 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           9 Jul 2021
+ Assignment:     Homework #04 Exercise #02
+ Version:        Java SE 11 (LTS)
+
+ Description: Test program for stock class.
+
+ *************************************/
 public class Hw4_Ex2 {
     public static void main(String[] x) {
         Stock stock1 = new Stock("ORCL", "Oracle Corporation");
