@@ -46,7 +46,7 @@ class Employee extends Person {
 }
 
 class Staff extends Employee {
-
+    String eric = "Eric is a choch";
 }
 
 class Faculty extends Employee {
