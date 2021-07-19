@@ -2,8 +2,8 @@
 
  Author:         Daniel Stanev
  Course:         CS 2336.0w3
- Date:           8 Jul 2021
- Assignment:     Homework #04 Exercise #19
+ Date:           19 Jul 2021
+ Assignment:     Homework #04 Exercise #08
  Version:        Java SE 11 (LTS)
 
  Description: Test program for person 
