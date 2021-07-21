@@ -23,6 +23,7 @@ public abstract class GeometricObject {
     public void setFilled(boolean filled) { this.filled = filled; }
 
     // Methods
+    @Override
     public String toString() {
         return "Created on: " + dateCreated + "\n Color:" + color + " and filled: " + filled;
     }
