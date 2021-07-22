@@ -3,12 +3,12 @@ public class Hw5_Ex7 {
         java.util.Scanner input = new java.util.Scanner(System.in);
 
         System.out.print("Enter a decimal number to conver to binary: ");
-        System.out.print("The binary equivalent is: " + dec2bin(input.nextInt()));
+        System.out.print("The binary equivalent is: " + dec2Bin(input.nextInt()));
         input.close();
     }
-    public static String dec2bin(int n) {
+    public static String dec2Bin(int n) {
         if (n <= 1)
             return "" + n;
-        return dec2bin(n/2) + (n % 2);
+        return dec2Bin(n/2) + (n % 2);
     }
 }
