@@ -3,7 +3,7 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
     private double radius;
 
     // Constructors
-    public Circle() { }
+    public Circle() { } // Default Constructor
     public Circle(double radius) {
         setRadius(radius);
     }
