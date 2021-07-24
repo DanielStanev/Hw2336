@@ -1,3 +1,17 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           24 Jul 2021
+ Assignment:     Homework #05 Exercise #03 #04
+ Version:        Java SE 11 (LTS)
+
+ Description: GeometricObject in listing
+ 13.2. Extended by the Circle and Rectangle
+ classes.
+
+ *************************************/
+
 public abstract class GeometricObject {
     private String color = "white";
     private boolean filled;
@@ -13,7 +27,7 @@ public abstract class GeometricObject {
         setFilled(filled);
     }
 
-    // Acccessors
+    // Accessors
     public String getColor()  { return color;  }
     public boolean isFilled() { return filled; }
     public java.util.Date getDateCreated() { return dateCreated; }
@@ -24,9 +38,7 @@ public abstract class GeometricObject {
 
     // Methods
     @Override
-    public String toString() {
-        return "Created on: " + dateCreated + "\n Color:" + color + " and filled: " + filled;
-    }
+    public String toString() { return "Created on: " + dateCreated + "\n Color:" + color + " and filled: " + filled; }
     public abstract double getArea();
     public abstract double getPerimeter();
 }

@@ -1,21 +1,22 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           24 Jul 2021
+ Assignment:     Homework #05 Exercise #10
+ Version:        Java SE 11 (LTS)
+
+ Description: Binary Search algorithm
+ for a generic ArrayList.
+
+ *************************************/
+
 public class Hw5_Ex10 {
-    public static void main(String[] x) {
-        Integer[] array = {1, 2, 3, 4, 5, 6};
-
-        System.out.println(binarySearch(array, 1));
-        System.out.println(binarySearch(array, 2));
-        System.out.println(binarySearch(array, 3));
-        System.out.println(binarySearch(array, 4));
-        System.out.println(binarySearch(array, 5));
-        System.out.println(binarySearch(array, 6));
-    }
-
-
     public static <E extends Comparable<E>> int binarySearch(E[] list, E key) {
-        int compare, interval;
-        int index = ((list.length - 1) / 2);
-        int low = 0;
-        int high = list.length - 1;
+        int compare, interval;                  // Check for the current element and interval to the next check
+        int index = ((list.length - 1) / 2);    // Current index to check
+        int low = 0;                            // Lowest index key could be at
+        int high = list.length - 1;             // Highest index key could be at
 
         do {
             compare = list[index].compareTo(key);
@@ -23,19 +24,19 @@ public class Hw5_Ex10 {
                 interval = ((high - index) / 2);
             else 
                 interval = ((index - low) / 2);
-            if (high - low == 2)
+            if (high - low == 2)            // To catch integer division errors on small intervals
                 interval = 1;
-            if (compare == 0)
+            if (compare == 0)               // If current element equal to the key
                 return index;
-            if (compare > 0) {
+            if (compare > 0) {              // If current element is greater than key
                 high = index;
                 index -= interval;
             }
-            else if (compare < 0) {
+            else {                          // If current element is less than key
                 low = index;
                 index += interval;
             }
         } while (interval > 0);
-        return -1;
+        return -1;                          // If element is not found
     }
 }

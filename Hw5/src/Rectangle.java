@@ -1,3 +1,16 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           24 Jul 2021
+ Assignment:     Homework #05 Exercise #04
+ Version:        Java SE 11 (LTS)
+
+ Description: Rectangle Class for
+ Exercise 4.
+
+ *************************************/
+
 public class Rectangle extends GeometricObject implements Comparable<Rectangle> {
     // Data Fields
     private double width, height;

@@ -1,3 +1,16 @@
+/************************************
+
+ Author:         Daniel Stanev
+ Course:         CS 2336.0w3
+ Date:           24 Jul 2021
+ Assignment:     Homework #05 Exercise #03
+ Version:        Java SE 11 (LTS)
+
+ Description: Circle Class for Exercise 3.
+
+ *************************************/
+
+
 public class Circle extends GeometricObject implements Comparable<Circle> {
     // Data field
     private double radius;
