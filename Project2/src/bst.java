@@ -3,28 +3,76 @@ class bst{
     Node root;
 
     private class Node{
-    	
-    	// These attributes of the Node class will not be sufficient for those attempting the AVL extra credit.
-    	// You are free to add extra attributes as you see fit, but do not remove attributes given as it will mess with help code.
+        // Data Fields
         String keyword;
         Record record;
         int size;
         Node l;
         Node r;
 
-        private Node(String k){
-        	// TODO Instantialize a new Node with keyword k.
-            keyword = k;
-        }
+        // Constructor
+        private Node(String k){ keyword = k; }
 
-        private void update(Record r){
-        	//TODO Adds the Record r to the linked list of records. You do not have to check if the record is already in the list.
-        	//HINT: Add the Record r to the front of your linked list.
+        private void update(Record r) {
             r.next = record;
             record = r;
         }
 
-       
+        private void insert(String keyword, Record record) {
+            // if the keyword is matches, updates the record
+            if (keyword.compareTo(this.keyword) == 0)
+                update(record);
+
+            // if the keyword should go to the left subtree
+            else if (keyword.compareTo(this.keyword) < 0) {
+                if (l == null) { // if there is no more to traverse creates new Node
+                    l = new Node(keyword);
+                    l.update(record);
+                }
+                else
+                    l.insert(keyword, record); // recursive call
+            }
+            // if the keyword should go to the right subtree
+            else if (keyword.compareTo(this.keyword) > 0) {
+                if (r == null) { // if there is no more to traverse creates New Node
+                    r = new Node(keyword);
+                    r.update(record);
+                }
+                else
+                    r.insert(keyword, record); // recursive call
+            }
+        }
+
+        private boolean contains(String keyword) {
+            if (keyword.compareTo(this.keyword) == 0) // returns on first search hit
+                return true;
+            else if (keyword.compareTo(this.keyword) < 0 && l != null) // if keyword is on left and right isnt empty
+                return l.contains(keyword);
+            else if (keyword.compareTo(this.keyword) > 0 && r != null) // if keyword is on right and left inst empty
+                return r.contains(keyword);
+            else
+                return false; // if keyword is not found
+        }
+
+        private Record get_records(String keyword) {
+            if (keyword.compareTo(this.keyword) == 0) // returns on first search hit
+                return record;
+
+            // if keyword belongs in left subtree
+            if (keyword.compareTo(this.keyword) < 0) {
+                if (l == null) // if there is no left sub tree
+                    return null;
+                return l.get_records(keyword);
+            }
+
+            // if keyword belongs in right subtree
+            else if (keyword.compareTo(this.keyword) > 0) { // if keyword belongs in right subtree
+                if (r == null) // if there is no right sub tree
+                    return null;
+                return r.get_records(keyword);
+            }
+            return null; // failsafe
+        }
     }
 
     public bst(){
@@ -33,29 +81,63 @@ class bst{
       
     public void insert(String keyword, FileData fd){
         Record recordToAdd = new Record(fd.id, fd.title, fd.author, null);
-        //TODO Write a recursive insertion that adds recordToAdd to the list of records for the node associated
-        //with keyword. If there is no node, this code should add the node.
+        if (root == null) {
+            root = new Node(keyword);
+            root.record = recordToAdd;
+        }
+        else
+            root.insert(keyword, recordToAdd);
     }
     
     public boolean contains(String keyword){
-    	//TODO Write a recursive function which returns true if a particular keyword exists in the bst
-    	return false;
+        if (root == null)
+            return false;
+        else
+            return root.contains(keyword); // recursive function in Node class
     }
 
     public Record get_records(String keyword){
-        //TODO Returns the first record for a particular keyword. This record will link to other records
-    	//If the keyword is not in the bst, it should return null.
-    	return null;
+        if (root == null) // if there is no content
+            return null;
+        return root.get_records(keyword);
     }
 
-    public void delete(String keyword){
-    	//TODO Write a recursive function which removes the Node with keyword from the binary search tree.
-    	//You may not use lazy deletion and if the keyword is not in the bst, the function should do nothing.
+    public void delete(String keyword) { root = delete(root, keyword); }
+
+    Node delete(Node root, String keyword) {
+        if (root == null) // if there is no more content
+            return root;
+
+        // if keyword belongs in left subtree
+        if (keyword.compareTo(root.keyword) < 0)
+            root.l = delete(root.l, keyword);
+
+        // if keyword belongs in right subtree
+        else if (keyword.compareTo(root.keyword) > 0)
+            root.r = delete(root.r, keyword);
+
+        else {
+            // if the node has 1 or less children
+            if (root.l == null)
+                return root.r;
+            else if (root.r == null)
+                return root.l;
+
+            // replaces the keyword and record with that of the inorder successor
+            Node temp = root.r;
+            while (temp.l != null)
+                temp = temp.l;
+            root.keyword = temp.keyword;
+            root.record = temp.record;
+
+            // deletes inorder successor recursively
+            root.r = delete(root.r, root.keyword);
+        }
+
+        return root;
     }
 
-    public void print(){
-        print(root);
-    }
+    public void print() { print(root); }
 
     private void print(Node t){
         if (t!=null){
