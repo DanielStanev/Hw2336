@@ -14,12 +14,14 @@ class bst{
 
         private Node(String k){
         	// TODO Instantialize a new Node with keyword k.
+            keyword = k;
         }
 
         private void update(Record r){
         	//TODO Adds the Record r to the linked list of records. You do not have to check if the record is already in the list.
         	//HINT: Add the Record r to the front of your linked list.
-
+            r.next = record;
+            record = r;
         }
 
        
@@ -30,7 +32,7 @@ class bst{
     }
       
     public void insert(String keyword, FileData fd){
-        Record recordToAdd = new Record(fd.id, fd.author, fd.title, null);
+        Record recordToAdd = new Record(fd.id, fd.title, fd.author, null);
         //TODO Write a recursive insertion that adds recordToAdd to the list of records for the node associated
         //with keyword. If there is no node, this code should add the node.
     }
